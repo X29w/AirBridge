@@ -1,0 +1,15 @@
+{
+  "name": "electron-front-fullstack",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "install-all": "node scripts/command/install-all.js",
+    "dev": "node scripts/command/dev.js",
+    "build": "node scripts/command/build.js",
+    "log":"node scripts/utils/log.js"
+  },
+  "keywords": [],
+  "author": "x29",
+  "license": "ISC"
+}

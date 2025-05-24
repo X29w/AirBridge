@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
+    "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "@main-thread/*": ["main-thread/*"],
+      "@render-thread/*": ["render-thread/*"]
+    }
+  },
+  "include": ["vite.config.ts", "types"]
+}
