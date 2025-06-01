@@ -1,15 +1,3 @@
-# 🚀 Electronest - Next generation Electron application development architecture template
-
-🌐 Select Language | 言語を選択 | 選擇語言:
-
-- 🇺🇸 [English](./README.en.md)
-- 🇯🇵 [日本語](./README.ja.md)
-- 🇹🇼 [繁體中文](./README.zh-TW.md)
-
----
-
-> Please click the link above according to the language you need.
-
 # 🚀 Electronest - Next-Gen Electron App Architecture Template
 
 **Electronest** is a cutting-edge Electron development template that integrates [Electron](https://www.electronjs.org/), [Vite](https://vitejs.dev/), and [NestJS](https://nestjs.com/), offering a modular, scalable, and type-safe architecture tailored for modern desktop applications.

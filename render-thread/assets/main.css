@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.allow-drag {
+  -webkit-app-region: drag;
+}
+
+.not-allow-drag {
+  -webkit-app-region: no-drag;
+}
+
+@theme {
+  --color-theme-black: #1890ff;
+}
