@@ -1,88 +1,79 @@
-import {
-  CloudUploadOutlined,
-  DesktopOutlined,
-  FileProtectOutlined,
-  SettingOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
 import { Div, P } from "@render/components/common/basic-tag";
-import { Button, Flex } from "antd";
+import { Button, Flex, Menu, MenuProps, Typography } from "antd";
 import type { FC } from "react";
-import NavigateCard from "./_components/navigate-card";
-import RenderList from "@render/components/common/render-list";
-import InfoCard from "./_components/info-card";
+import {
+  AppstoreOutlined,
+  CloudUploadOutlined,
+  MailOutlined,
+  SettingOutlined,
+  WifiOutlined,
+} from "@ant-design/icons";
+import { Outlet, useNavigate } from "react-router";
 
 interface HomeProps {}
+type MenuItem = Required<MenuProps>["items"][number];
 
 const Home: FC<HomeProps> = () => {
-  const heroes = [
+  const navigate = useNavigate();
+  const items: MenuItem[] = [
     {
-      title: "文件快传",
-      description: "快速传输文件到局域网内的任意设备",
-      icon: (
-        <CloudUploadOutlined
-          style={{ color: "#1890ff" }}
-          className="text-[32px]"
-        />
-      ),
-    },
-    {
-      title: "远程协作",
-      description: "远程协作，随时随地，随心所欲",
-      icon: (
-        <TeamOutlined style={{ color: "#A855F7" }} className="text-[32px]" />
-      ),
-    },
-    {
-      title: "文档同步",
-      description: "跨设备文档自动同步与备份",
-      icon: (
-        <FileProtectOutlined
-          style={{ color: "#22C55E" }}
-          className="text-[32px]"
-        />
-      ),
-    },
-    {
-      title: "屏幕共享",
-      description: "一键投屏与多屏协同",
-      icon: (
-        <DesktopOutlined style={{ color: "#F97316" }} className="text-[32px]" />
-      ),
+      key: "grp",
+      label: "Group",
+      type: "group",
+      children: [
+        { key: "file-transfer", label: "文件分享" },
+        { key: "screen-record", label: "录屏" },
+        { key: "screenshot", label: "截图" },
+        { key: "ninja-chat", label: "Ninja Chat" },
+      ],
     },
   ];
+
+  const onClick: MenuProps["onClick"] = (e) => {
+    console.log("click ", e);
+    navigate(`/home/${e.key}`);
+  };
+
   return (
-    <Div className="w-full h-full p-8 bg-[#f9fafb]">
-      <Flex justify="space-between" className="items-center">
-        <Flex gap={16}>
-          <Div className="w-12 h-12 grid place-items-center text-white bg-blue-500 rounded-2xl">
-            <CloudUploadOutlined className=" text-2xl" />
-          </Div>
-          <Flex vertical>
-            <P className="font-bold text-[24px] text-[#1F2937]">快传助手</P>
-            <P className="text-[#6B7280] text-[14px]">
-              便捷高效的跨设备协作工具
-            </P>
+    <Div className="h-full p-8 flex flex-col bg-[#f9fafb]">
+      <Div className="mb-8 p-4 bg-white rounded-2xl">
+        <Flex justify="space-between" align="center">
+          <Flex align="center" gap={16}>
+            <Div className="w-12 h-12 text-white grid place-items-center rounded-2xl bg-[#3B82F6]">
+              <CloudUploadOutlined className="text-2xl" />
+            </Div>
+            <Div>
+              <P className="text-[24px] text-[#1F2937] font-bold">Air Bridge</P>
+              <P className="text-[14px] text-[#6B7280]">
+                便捷高效的跨设备协作工具
+              </P>
+            </Div>
+          </Flex>
+          <Flex align="center" gap={16}>
+            <WifiOutlined />
+            <P className="text-[14px] text-[#6B7280]">ip: 192.168.0.105</P>
+            <Button icon={<SettingOutlined />}>设置</Button>
           </Flex>
         </Flex>
-        <Button icon={<SettingOutlined />}>设置</Button>
-      </Flex>
-
-      <Div className="w-full grid grid-cols-2 gap-6 mt-12">
-        <RenderList
-          items={heroes}
-          renderItems={(item) => (
-            <NavigateCard
-              title={item.title}
-              description={item.description}
-              icon={item.icon}
-            />
-          )}
-        />
       </Div>
-      <Div className="mt-8 p-8 bg-white rounded-2xl">
-        <P className="mb-6">我的</P>
-        <InfoCard />
+
+      <Div className="flex-1">
+        <Div className="w-full h-full flex gap-5  ">
+          <Div className="h-full rounded-2xl">
+            <Menu
+              className="h-full rounded-2xl"
+              onClick={onClick}
+              style={{ width: 256 }}
+              defaultSelectedKeys={["1"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+              items={items}
+            />
+          </Div>
+          <Div className="flex-1 bg-white rounded-2xl">
+            <Outlet />
+          </Div>
+        </Div>
       </Div>
     </Div>
   );
