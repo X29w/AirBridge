@@ -22,7 +22,7 @@ export class MainWindow implements IWindow {
       },
     });
 
-    if (IS_DEV) win.loadURL(`${VITE_DEV_SERVER_URL}/render-thread/windows/main/`);
+    if (IS_DEV) win.loadURL(`${VITE_DEV_SERVER_URL}/render-thread/windows/main/#/home`);
     else win.loadFile(getRendererPath("main"));
 
     return win;
