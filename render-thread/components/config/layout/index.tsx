@@ -19,9 +19,36 @@ const Layout: FC<LayoutProps> = () => (
     >
       <Div />
       <Flex gap={8}>
-        <Button className="not-allow-drag" icon={<MinusOutlined />} />
-        <Button className="not-allow-drag" icon={<FullscreenOutlined />} />
-        <Button className="not-allow-drag" icon={<CloseOutlined />} />
+        <Button
+          ghost
+          type="text"
+          className="not-allow-drag"
+          icon={
+            <Div className="text-[20px]">
+              <MinusOutlined />
+            </Div>
+          }
+        />
+        <Button
+          ghost
+          type="text"
+          className="not-allow-drag"
+          icon={
+            <Div className="text-[20px]">
+              <FullscreenOutlined />
+            </Div>
+          }
+        />
+        <Button
+          ghost
+          type="text"
+          className="not-allow-drag"
+          icon={
+            <Div className="text-[20px] transition-all duration-300 ease-in-out hover:text-red-500">
+              <CloseOutlined />
+            </Div>
+          }
+        />
       </Flex>
     </Flex>
     <Div className="flex-1 ">

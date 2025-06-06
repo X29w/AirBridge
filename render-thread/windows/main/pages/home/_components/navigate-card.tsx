@@ -15,7 +15,7 @@ interface NavigateCardProps {}
 const NavigateCard: FC<NavigateCardProps> = () => {
   const list = [
     {
-      key: "file-transfer",
+      key: "file-transfer/main",
       title: "文件快传",
       description: "将文件快速上传到服务器",
       icon: (

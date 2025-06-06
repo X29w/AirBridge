@@ -18,18 +18,19 @@
     "@nestjs/common": "^11.1.2",
     "@nestjs/core": "^11.1.2",
     "@nestjs/platform-express": "^11.1.2",
-    "@tailwindcss/vite": "^4.1.8",
     "electron-log": "^5.4.0",
     "electron-updater": "^6.6.2",
+    "gsap": "^3.13.0",
     "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.2",
-    "tailwindcss": "^4.1.8"
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
+    "@ant-design/pro-components": "^2.8.7",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
     "@react-three/postprocessing": "^3.0.4",
     "@swc/core": "^1.11.29",
+    "@tailwindcss/vite": "^4.1.8",
     "@types/node": "^22.15.29",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
@@ -47,6 +48,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.1",
+    "tailwindcss": "^4.1.8",
     "three": "^0.177.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"

@@ -3,10 +3,13 @@ import { lazy } from "react";
 import { createHashRouter } from "react-router";
 
 const Home = lazy(() => import("../pages/home"));
-const FileTransfer = lazy(() => import("../pages/file-transfer"));
 const ScreenRecord = lazy(() => import("../pages/screen-record"));
 const ScreenShot = lazy(() => import("../pages/screen-shot"));
 const NinjaChat = lazy(() => import("../pages/ninja-chat"));
+const FileTransferLayout = lazy(() => import("../pages/file-transfer"));
+const FileTransfer = lazy(() => import("../pages/file-transfer/main"));
+const FileTransferRecord = lazy(() => import("../pages/file-transfer/record"));
+const MoreDevice = lazy(() => import("../pages/file-transfer/more-device"));
 
 export const routes = createHashRouter([
   {
@@ -22,7 +25,21 @@ export const routes = createHashRouter([
           },
           {
             path: "file-transfer",
-            element: <FileTransfer />,
+            element: <FileTransferLayout />,
+            children: [
+              {
+                path: "main",
+                element: <FileTransfer />,
+              },
+              {
+                path: "record",
+                element: <FileTransferRecord />,
+              },
+              {
+                path: "more-device",
+                element: <MoreDevice />,
+              },
+            ],
           },
           {
             path: "screen-record",
