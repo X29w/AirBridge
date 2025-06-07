@@ -46,9 +46,9 @@ export default defineConfig(() => {
         rollupOptions: {
           input: {
             main: resolve(__dirname, "render-thread/windows/main/index.html"),
-            "child-a": resolve(
+            "settings": resolve(
               __dirname,
-              "render-thread/windows/child-a/index.html"
+              "render-thread/windows/settings/index.html"
             ),
           },
         },

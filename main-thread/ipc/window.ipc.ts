@@ -1,6 +1,6 @@
 import { IPCHandle } from "@main/decorators/ipc-handle";
 import { WindowManager } from "@main/windows/window-manager";
-import { type IpcMainInvokeEvent } from "electron";
+import { webContents, type IpcMainInvokeEvent } from "electron";
 
 /** window ipc */
 export class WindowIPC {
@@ -9,5 +9,41 @@ export class WindowIPC {
     if (!WindowManager.hasWindow(name)) {
       WindowManager.createWindow(name);
     }
+  }
+
+  @IPCHandle("close-window")
+  closeWindow(_e: IpcMainInvokeEvent, name: Electron.WindowName) {
+    const window = WindowManager.getWindow(name);
+    if (window) {
+      window.close();
+    }
+  }
+
+  @IPCHandle("minimize-window")
+  minimizeWindow(_e: IpcMainInvokeEvent, name: Electron.WindowName) {
+    const window = WindowManager.getWindow(name);
+    if (window) {
+      window.minimize();
+    }
+  }
+
+  @IPCHandle("maximize-window")
+  maximizeWindow(_e: IpcMainInvokeEvent, name: Electron.WindowName) {
+    const window = WindowManager.getWindow(name);
+    if (window) {
+      if (window.isMaximized()) {
+        window.unmaximize();
+      } else {
+        window.maximize();
+      }
+    }
+  }
+
+  @IPCHandle("change-language")
+  changeLanguage(_e: IpcMainInvokeEvent, language: Electron.CustomLanguage) {
+    console.log("change-language", language)
+    webContents.getAllWebContents().forEach((content) => {
+      content.send("change-language", language);
+    });
   }
 }

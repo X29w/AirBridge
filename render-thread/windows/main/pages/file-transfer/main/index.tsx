@@ -8,18 +8,16 @@ import { Button, Flex, Typography, Upload } from "antd";
 import type { FC } from "react";
 import TargetDevice from "./_components/target-device";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
+import GoBack from "@render/components/common/go-back";
 
 interface FileTransferProps {}
 
 const FileTransfer: FC<FileTransferProps> = () => {
+  const { t } = useTranslation();
   return (
     <Div className="w-full h-full flex flex-col p-8 bg-[#f9fafb]">
-      <Flex justify="space-between">
-        <Typography.Title level={4}>文件传输</Typography.Title>
-        <Link to="/file-transfer/record">
-          <Button icon={<FieldTimeOutlined />} />
-        </Link>
-      </Flex>
+      <GoBack to="/home" title={t("home.navigate.fileTransfer.title")} />
 
       <Div className="my-8">
         <Upload.Dragger>
@@ -27,20 +25,21 @@ const FileTransfer: FC<FileTransferProps> = () => {
             <InboxOutlined />
           </p>
           <p className="ant-upload-text">
-            Click or drag file to this area to upload
+            {t("fileTransfer.main.upload_title")}
           </p>
           <p className="ant-upload-hint">
-            Support for a single or bulk upload. Strictly prohibited from
-            uploading company data or other banned files.
+            {t("fileTransfer.main.upload_hint")}
           </p>
         </Upload.Dragger>
       </Div>
       <Flex justify="space-between" align="center">
-        <Typography.Title level={5}>选择目标设备</Typography.Title>
+        <Typography.Title level={5}>
+          {t("fileTransfer.main.target_device_title")}
+        </Typography.Title>
         <Link to="/file-transfer/more-device">
           <Button>
             <DeliveredProcedureOutlined />
-            更多设备
+            {t("fileTransfer.main.more_device_title")}
           </Button>
         </Link>
       </Flex>

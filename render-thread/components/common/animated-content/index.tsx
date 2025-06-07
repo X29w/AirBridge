@@ -1,89 +1,25 @@
-import { useEffect, useRef, type FC, type ReactNode } from "react";
-import { Div } from "../basic-tag";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { FC, HTMLAttributes } from "react";
+import { motion } from "framer-motion";
 
-interface AnimatedContentProps {
-  children: ReactNode;
-  distance?: number;
-  direction?: "vertical" | "horizontal";
-  reverse?: boolean;
+interface AnimatedContentProps extends HTMLAttributes<HTMLDivElement> {
   duration?: number;
-  ease?: string | ((progress: number) => number);
-  initialOpacity?: number;
-  animateOpacity?: boolean;
-  scale?: number;
-  threshold?: number;
-  delay?: number;
-  onComplete?: () => void;
 }
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AnimatedContent: FC<AnimatedContentProps> = ({
   children,
-  distance = 100,
-  direction = "vertical",
-  reverse = false,
-  duration = 0.8,
-  ease = "power3.out",
-  initialOpacity = 0,
-  animateOpacity = true,
-  scale = 1,
-  threshold = 0.1,
-  delay = 0,
-  onComplete,
+  duration = 0.5,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const axis = direction === "horizontal" ? "x" : "y";
-    const offset = reverse ? -distance : distance;
-    const startPct = (1 - threshold) * 100;
-
-    gsap.set(el, {
-      [axis]: offset,
-      scale,
-      opacity: animateOpacity ? initialOpacity : 1,
-    });
-
-    gsap.to(el, {
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      duration,
-      ease,
-      delay,
-      onComplete,
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${startPct}%`,
-        toggleActions: "play none none none",
-        once: true,
-      },
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-      gsap.killTweensOf(el);
-    };
-  }, [
-    distance,
-    direction,
-    reverse,
-    duration,
-    ease,
-    initialOpacity,
-    animateOpacity,
-    scale,
-    threshold,
-    delay,
-    onComplete,
-  ]);
-  return <Div ref={ref}>{children}</Div>;
+  return (
+    <motion.div
+      className="animated-content"
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -100, opacity: 0 }}
+      transition={{ duration: duration }}
+    >
+      {children}
+    </motion.div>
+  );
 };
 
 export default AnimatedContent;

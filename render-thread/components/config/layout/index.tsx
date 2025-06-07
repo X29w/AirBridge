@@ -8,9 +8,11 @@ import { Button, Flex } from "antd";
 import type { FC } from "react";
 import { Outlet } from "react-router";
 
-interface LayoutProps {}
+interface LayoutProps {
+  windowName: Electron.WindowName;
+}
 
-const Layout: FC<LayoutProps> = () => (
+const Layout: FC<LayoutProps> = ({ windowName }) => (
   <Div className="flex flex-col w-full h-full">
     <Flex
       justify="space-between"
@@ -28,6 +30,7 @@ const Layout: FC<LayoutProps> = () => (
               <MinusOutlined />
             </Div>
           }
+          onClick={() => window.electronAPI["minimize-window"](windowName)}
         />
         <Button
           ghost
@@ -38,6 +41,7 @@ const Layout: FC<LayoutProps> = () => (
               <FullscreenOutlined />
             </Div>
           }
+          onClick={() => window.electronAPI["maximize-window"](windowName)}
         />
         <Button
           ghost
@@ -48,6 +52,7 @@ const Layout: FC<LayoutProps> = () => (
               <CloseOutlined />
             </Div>
           }
+          onClick={() => window.electronAPI["close-window"](windowName)}
         />
       </Flex>
     </Flex>

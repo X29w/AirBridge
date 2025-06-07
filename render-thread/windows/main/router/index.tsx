@@ -17,7 +17,7 @@ export const routes = createHashRouter([
     children: [
       {
         path: "",
-        element: <Layout />,
+        element: <Layout windowName="main" />,
         children: [
           {
             path: "home",

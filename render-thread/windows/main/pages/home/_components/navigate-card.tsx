@@ -8,16 +8,18 @@ import { Div } from "@render/components/common/basic-tag";
 import RenderList from "@render/components/common/render-list";
 import { Flex, Typography } from "antd";
 import type { FC } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
 
 interface NavigateCardProps {}
 
 const NavigateCard: FC<NavigateCardProps> = () => {
+  const { t } = useTranslation();
   const list = [
     {
       key: "file-transfer/main",
-      title: "文件快传",
-      description: "将文件快速上传到服务器",
+      title: t("home.navigate.fileTransfer.title"),
+      description: t("home.navigate.fileTransfer.description"),
       icon: (
         <Div className="w-12 h-12 grid place-items-center rounded-2xl bg-[#DBEAFE] text-[#3B82F6]">
           <CloudUploadOutlined className="text-2xl" />
@@ -26,8 +28,8 @@ const NavigateCard: FC<NavigateCardProps> = () => {
     },
     {
       key: "screen-record",
-      title: "录制屏幕",
-      description: "录制屏幕并分享",
+      title: t("home.navigate.screenRecord.title"),
+      description: t("home.navigate.screenRecord.description"),
       icon: (
         <Div className="w-12 h-12 grid place-items-center rounded-2xl bg-[#F3E8FF] text-[#A855F7]">
           <VideoCameraOutlined className="text-2xl" />
@@ -36,8 +38,8 @@ const NavigateCard: FC<NavigateCardProps> = () => {
     },
     {
       key: "screen-shot",
-      title: "屏幕截图",
-      description: "截取屏幕并分享",
+      title: t("home.navigate.screenShot.title"),
+      description: t("home.navigate.screenShot.description"),
       icon: (
         <Div className="w-12 h-12 grid place-items-center rounded-2xl bg-[#DCFCE7] text-[#22C55E]">
           <SelectOutlined className="text-2xl" />
@@ -46,8 +48,8 @@ const NavigateCard: FC<NavigateCardProps> = () => {
     },
     {
       key: "ninja-chat",
-      title: "Ninja Chat",
-      description: "私密聊天",
+      title: t("home.navigate.ninjaChat.title"),
+      description: t("home.navigate.ninjaChat.description"),
       icon: (
         <Div className="w-12 h-12 grid place-items-center rounded-2xl bg-orange-200 text-[#F59E0B]">
           <MoonOutlined className="text-2xl" />
