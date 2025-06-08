@@ -10,6 +10,7 @@ const FileTransferLayout = lazy(() => import("../pages/file-transfer"));
 const FileTransfer = lazy(() => import("../pages/file-transfer/main"));
 const FileTransferRecord = lazy(() => import("../pages/file-transfer/record"));
 const MoreDevice = lazy(() => import("../pages/file-transfer/more-device"));
+const TransferZone = lazy(() => import("../pages/transfer-zone"));
 
 export const routes = createHashRouter([
   {
@@ -52,6 +53,10 @@ export const routes = createHashRouter([
           {
             path: "ninja-chat",
             element: <NinjaChat />,
+          },
+          {
+            path: "transfer-zone",
+            element: <TransferZone />,
           },
         ],
       },

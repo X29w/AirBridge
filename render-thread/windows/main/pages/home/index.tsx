@@ -26,8 +26,8 @@ const Home: FC<HomeProps> = () => {
             <ParticleEarth />
           </Div>
         </Div>
-        <InfoBar />
       </Div>
+      <InfoBar />
     </Div>
   );
 };

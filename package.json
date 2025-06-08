@@ -36,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.33.0",
     "@vitejs/plugin-react": "^4.5.0",
+    "ahooks": "^3.8.5",
     "antd": "^5.25.4",
     "electron": "^36.3.2",
     "electron-builder": "^26.0.12",

@@ -17,7 +17,22 @@ const FileTransfer: FC<FileTransferProps> = () => {
   const { t } = useTranslation();
   return (
     <Div className="w-full h-full flex flex-col p-8 bg-[#f9fafb]">
-      <GoBack to="/home" title={t("home.navigate.fileTransfer.title")} />
+      <GoBack
+        to="/home"
+        title={t("home.navigate.fileTransfer.title")}
+        rightContent={
+          <Link to="/file-transfer/record">
+            <Button
+              type="link"
+              icon={
+                <Div className="text-[20px]">
+                  <FieldTimeOutlined />
+                </Div>
+              }
+            />
+          </Link>
+        }
+      />
 
       <Div className="my-8">
         <Upload.Dragger>

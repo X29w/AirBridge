@@ -6,6 +6,7 @@ declare namespace Electron {
     "minimize-window": { args: [name: WindowName]; return: string };
     "maximize-window": { args: [name: WindowName]; return: string };
     "change-language": { args: [language: CustomLanguage]; return: string };
+    "local-ip": { args: []; return: string };
     "on-language-change": { listener: (lang: CustomLanguage) => void };
   };
 

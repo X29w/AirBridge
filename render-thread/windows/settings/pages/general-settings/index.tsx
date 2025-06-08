@@ -1,5 +1,7 @@
 import { Flex, Select, SelectProps, Typography } from "antd";
 import { useState, type FC } from "react";
+import Language from "./_components/language";
+import NickName from "./_components/nick-name";
 
 interface GeneralSettingsProps {}
 
@@ -12,22 +14,11 @@ const GeneralSettings: FC<GeneralSettingsProps> = () => {
   };
 
   return (
-    <>
-      <Flex justify="space-between" align="center">
-        <Typography.Title level={3}>语言</Typography.Title>
-        <Select
-          className="w-[260px]"
-          placeholder="选择语言"
-          options={[
-            { label: "繁體中文", value: "zh-TW" },
-            { label: "English", value: "en" },
-            { label: "日本語", value: "ja" },
-          ]}
-          value={language}
-          onChange={onChange}
-        />
-      </Flex>
-    </>
+    <Flex vertical gap={16}>
+      <Language />
+
+      <NickName />
+    </Flex>
   );
 };
 

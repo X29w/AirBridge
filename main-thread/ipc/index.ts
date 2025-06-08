@@ -1,7 +1,7 @@
 import { AutoRegisterIPC } from "../decorators/ipc-auto-register";
-import { HelloIPC } from "./hello.ipc";
+import { ConfigIPC } from "./config.ipc";
 import { WindowIPC } from "./window.ipc";
 
 /** main ipc */
-@AutoRegisterIPC([HelloIPC, WindowIPC])
+@AutoRegisterIPC([ConfigIPC, WindowIPC])
 export class MainIpc {}

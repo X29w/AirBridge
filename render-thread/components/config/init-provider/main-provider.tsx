@@ -1,4 +1,4 @@
-import { useLanguageChange } from "@render/hooks/use-language-change";
+import { useLanguageChange } from "@render/hooks/config/use-language-change";
 import type { FC, PropsWithChildren } from "react";
 
 interface MainProviderProps extends PropsWithChildren {}

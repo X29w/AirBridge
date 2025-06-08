@@ -12,6 +12,7 @@ const api: ElectronAPI = {
     ipcRenderer.invoke("maximize-window", name),
   "change-language": (language: Electron.CustomLanguage) =>
     ipcRenderer.invoke("change-language", language),
+  "local-ip": () => ipcRenderer.invoke("local-ip"),
   "on-language-change": (callback: (lang: Electron.CustomLanguage) => void) => {
     ipcRenderer.on("change-language", (_event, lang) => {
       callback(lang);

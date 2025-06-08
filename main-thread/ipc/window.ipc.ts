@@ -39,11 +39,5 @@ export class WindowIPC {
     }
   }
 
-  @IPCHandle("change-language")
-  changeLanguage(_e: IpcMainInvokeEvent, language: Electron.CustomLanguage) {
-    console.log("change-language", language)
-    webContents.getAllWebContents().forEach((content) => {
-      content.send("change-language", language);
-    });
-  }
+
 }
