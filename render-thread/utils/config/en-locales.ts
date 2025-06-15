@@ -35,11 +35,19 @@ const en = {
     },
     main: {
       title: "File Transfer",
-      upload_title:"Click or drag file to this area to upload",
-      upload_hint: "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
+      upload_title: "Click or drag file to this area to upload",
+      upload_hint:
+        "Support for a single or bulk upload. Strictly prohibited from uploading company data or other banned files.",
       target_device_title: "Select Target Device",
       more_device_title: "More Devices",
-    }
+    },
+  },
+  settings: {
+    general: {
+      language: "Language",
+      chooseLanguage: "Choose Language",
+      localNickName: "Local Nickname",
+    },
   },
 } as const;
 

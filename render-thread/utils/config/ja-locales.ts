@@ -34,6 +34,13 @@ const ja = {
       },
     },
   },
+  settings: {
+    general: {
+      language: "言語",
+      chooseLanguage: "言語を選択",
+      localNickName: "ローカルニックネーム",
+    },
+  },
 } as const;
 
 export default ja;

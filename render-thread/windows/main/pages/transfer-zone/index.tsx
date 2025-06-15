@@ -91,7 +91,10 @@ const TransferZone: FC<TransferZoneProps> = () => {
   return (
     <Div className="w-full h-full p-8 bg-[#f9fafb]">
       <GoBack to={"/home"} title="Transfer Zone" />
-      <motion.div layout className="w-full mt-8 p-4 bg-white rounded-2xl shadow-md">
+      <motion.div
+        layout
+        className="w-full mt-8 p-4 bg-white rounded-2xl shadow-md"
+      >
         <Div className="space-y-2">
           <AnimatePresence mode="popLayout">
             {files.map((file) => (

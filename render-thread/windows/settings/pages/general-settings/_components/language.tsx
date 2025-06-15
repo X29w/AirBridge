@@ -1,10 +1,12 @@
 import { Flex, Typography, Select, SelectProps } from "antd";
 import { useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface LanguageProps {}
 
 const Language: FC<LanguageProps> = () => {
   const [value, setValue] = useState<Electron.CustomLanguage>("en");
+  const { t } = useTranslation();
 
   const onChange: SelectProps["onChange"] = (e) => {
     setValue(e);
@@ -12,10 +14,12 @@ const Language: FC<LanguageProps> = () => {
   };
   return (
     <Flex justify="space-between" align="center">
-      <Typography.Title level={5}>语言</Typography.Title>
+      <Typography.Title level={5}>
+        {t("settings.general.language")}
+      </Typography.Title>
       <Select
         className="w-[260px] h-10!"
-        placeholder="选择语言"
+        placeholder={t("settings.general.chooseLanguage")}
         options={[
           { label: "繁體中文", value: "zh-TW" },
           { label: "English", value: "en" },

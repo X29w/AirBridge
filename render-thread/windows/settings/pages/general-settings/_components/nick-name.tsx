@@ -1,13 +1,17 @@
 import { Flex, Input, Typography } from "antd";
 import { useState, type FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface NickNameProps {}
 
 const NickName: FC<NickNameProps> = () => {
   const [value, setValue] = useState<string>("");
+  const { t } = useTranslation();
   return (
     <Flex justify="space-between" align="center">
-      <Typography.Title level={5}>本机昵称</Typography.Title>
+      <Typography.Title level={5}>
+        {t("settings.general.localNickName")}
+      </Typography.Title>
       <Input
         className="w-[260px]! h-10"
         maxLength={20}

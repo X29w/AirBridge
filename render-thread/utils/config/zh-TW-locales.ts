@@ -34,6 +34,13 @@ const zh_TW = {
       },
     },
   },
+  settings: {
+    general: {
+      language: "語言",
+      chooseLanguage: "選擇語言",
+      localNickName: "本機昵稱",
+    }
+  }
 } as const;
 
 export default zh_TW;

@@ -1,4 +1,4 @@
-import { Flex, Select, SelectProps, Typography } from "antd";
+import { Flex, SelectProps } from "antd";
 import { useState, type FC } from "react";
 import Language from "./_components/language";
 import NickName from "./_components/nick-name";
